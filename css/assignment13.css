@@ -73,6 +73,10 @@
 .input-field input[type=password]:focus + label {
 	color: #fff;
 }
+/* label focus color */
+.input-field input[type=email]:focus + label {
+	color: #fff;
+}
 /* icon prefix focus color */
 .input-field .prefix.active {
 	color: #fff;
@@ -83,4 +87,8 @@ input, select, textarea{
 }
 textarea:focus, input:focus {
     color: #fff;
+}
+/* character-counter color */
+.character-counter {
+	color: #fff;
 }

@@ -31,32 +31,32 @@
                         <form class="col s12" method="post">
                             <div class="input-field col s6">
                                 <i class="mdi-action-account-circle prefix" id="login-icon"></i>
-                                <input id="fname" type="text" length="25">
+                                <input id="fname" type="text" length="25" required>
                                 <label for="fname">First Name</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="mdi-action-account-circle prefix" id="login-icon"></i>
-                                <input id="lname" type="text" length="30">
+                                <input id="lname" type="text" length="30" required>
                                 <label for="lname">Last Name</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="mdi-communication-email prefix" id="login-icon"></i>
-                                <input id="email" type="email" length="40" class="validate">
+                                <input id="email" type="email" length="40" class="validate" required>
                                 <label for="email">Email Address</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="mdi-action-account-child prefix" id="login-icon"></i>
-                                <input id="uname" type="text" class="validate">
+                                <input id="uname" type="text" class="validate" required>
                                 <label for="uname">Username</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="mdi-action-lock prefix" id="login-icon"></i>
-                                <input id="password" type="password" class="validate">
+                                <input id="password" type="password" pattern=".{10,}" class="validate" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="mdi-action-lock prefix" id="login-icon"></i>
-                                <input id="cpassword" type="password" class="validate">
+                                <input id="cpassword" type="password" pattern=".{10,}" class="validate" required>
                                 <label for="cpassword">Confirm Password</label>
                             </div>
                         </form>
