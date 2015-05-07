@@ -54,7 +54,7 @@
 }
 
 /* label color */
-.input-field label {
+.input-field label, select {
 	color: #fff;
 }
 /* label focus color */
@@ -68,4 +68,11 @@
 /* icon prefix focus color */
 .input-field .prefix.active {
 	color: #fff;
+}
+/* input text color */
+input, select, textarea{
+    color: #fff;
+}
+textarea:focus, input:focus {
+    color: #fff;
 }
