@@ -15,6 +15,7 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/assignment13.js"></script>
         
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
@@ -28,7 +29,7 @@
                 <div class="card-content">
                     <span class="card-title white-text">Register</span>
                     <div class="row">
-                        <form class="col s12" method="post">
+                        <form id="registerForm" class="col s12" action="http://www.amqtech.com/assignment13/register.php" method="post">
                             <div class="input-field col s6">
                                 <i class="mdi-action-account-circle prefix" id="login-icon"></i>
                                 <input id="fname" type="text" length="25" required>
@@ -63,7 +64,7 @@
                     </div>
                 </div>
                 <div class="card-action">
-                    <a id="submit-button" style="margin-left:20px; color:#fff;" class="light-blue lighten-2 waves-effect waves-light btn">Submit</a>
+                    <a id="submit-button" onClick="submitForm();" type="Submit" style="margin-left:20px; color:#fff;" class="light-blue lighten-2 waves-effect waves-light btn">Submit</a>
                 </div>
             </div>
         </div>
