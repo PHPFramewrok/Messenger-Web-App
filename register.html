@@ -22,22 +22,42 @@
             </div>
         </nav>
         
-        <div class="container" style="width: 30%">
+        <div class="container" style="width: 50%">
             <br><br>
             <div class="card light-blue darken-1 center">
                 <div class="card-content">
-                    <span class="card-title white-text">Login</span>
+                    <span class="card-title white-text">Register</span>
                     <div class="row">
                         <form class="col s12" method="post">
-                            <div class="input-field">
+                            <div class="input-field col s6">
                                 <i class="mdi-action-account-circle prefix" id="login-icon"></i>
-                                <input id="username" type="text">
-                                <label for="username">Username</label>
+                                <input id="fname" type="text" length="25">
+                                <label for="fname">First Name</label>
                             </div>
-                            <div class="input-field">
+                            <div class="input-field col s6">
+                                <i class="mdi-action-account-circle prefix" id="login-icon"></i>
+                                <input id="lname" type="text" length="30">
+                                <label for="lname">Last Name</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="mdi-communication-email prefix" id="login-icon"></i>
+                                <input id="email" type="email" length="40" class="validate">
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="mdi-action-account-child prefix" id="login-icon"></i>
+                                <input id="uname" type="text" class="validate">
+                                <label for="uname">Username</label>
+                            </div>
+                            <div class="input-field col s6">
                                 <i class="mdi-action-lock prefix" id="login-icon"></i>
-                                <input id="password" type="password">
+                                <input id="password" type="password" class="validate">
                                 <label for="password">Password</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="mdi-action-lock prefix" id="login-icon"></i>
+                                <input id="cpassword" type="password" class="validate">
+                                <label for="cpassword">Confirm Password</label>
                             </div>
                         </form>
                     </div>
@@ -51,11 +71,8 @@
         <div class="container" style="width: 30%">
             <br><br>
             <div class="row center">
-            	<div class="col s12">
-                	<a href="#">Forgot Password?</a>
-                </div>
                 <div class="col s12">
-                	<a href="register.html">Sign Up</a>
+                	<a href="index.html">Login</a>
                 </div>
             </div>
         </div>
