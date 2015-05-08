@@ -4,19 +4,19 @@
     	<title>Messenger</title>
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        
         <link type="text/css" rel="stylesheet" href="css/assignment13.css"/>
+        
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="js/assignment13.js"></script>
         
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     </head>
     
-    <body>
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/assignment13.js"></script>
-        
+    <body onLoad="checkForLoggedInUser();">
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">Messenger</a>
@@ -29,7 +29,7 @@
                 <div class="card-content">
                     <span class="card-title white-text">Register</span>
                     <div class="row">
-                        <form id="registerForm" class="col s12" action="http://www.amqtech.com/assignment13/register.php" method="post">
+                        <form id="registerForm" class="col s12">
                             <div class="input-field col s6">
                                 <i class="mdi-action-account-circle prefix" id="login-icon"></i>
                                 <input id="fname" type="text" length="25" required>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="input-field col s12">
                                 <i class="mdi-action-account-child prefix" id="login-icon"></i>
-                                <input id="uname" type="text" class="validate" required>
+                                <input id="uname" type="text" required>
                                 <label for="uname">Username</label>
                             </div>
                             <div class="input-field col s6">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="card-action">
-                    <a id="submit-button" onClick="submitForm();" type="Submit" style="margin-left:20px; color:#fff;" class="light-blue lighten-2 waves-effect waves-light btn">Submit</a>
+                    <a onClick="registerUser();" style="margin-left:20px; color:#fff;" class="light-blue lighten-2 waves-effect waves-light btn">Submit</a>
                 </div>
             </div>
         </div>
