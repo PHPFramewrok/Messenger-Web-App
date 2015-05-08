@@ -48,30 +48,34 @@ function checkForLoggedInUserOnMainPage() {
 
 function registerUser()
 {
-	var user = new Parse.User();
-	user.set("fname", $("#fname").val());
-	user.set("lname", $("#lname").val());
-	user.set("email", $("#email").val());
-	user.set("username", $("#uname").val());
-	user.set("password", $("#password").val());
-	  
-	user.signUp(null, {
-	  success: function(user) {
-		window.location = "home.html";
-	  },
-	  error: function(user, error) {
-		// Show the error message somewhere and let the user try again.
-		if (error.code === -1) {
-			alert("Please make sure all fields are filled out.");
-		} else if (error.code === 202) {
-			alert("Username already taken.");
-	  	} else if (error.code === 203) {
-			alert("Email already taken.");
-		} else {
-			alert("Error: " + error.code + " " + error.message);
-		}
-	  }
-	});
+	if ($("#cpassword").val() === $("#password").val() || $("#password").val() === $("#cpassword").val()) {
+		var user = new Parse.User();
+		user.set("fname", $("#fname").val());
+		user.set("lname", $("#lname").val());
+		user.set("email", $("#email").val());
+		user.set("username", $("#uname").val());
+		user.set("password", $("#password").val());
+		  
+		user.signUp(null, {
+		  success: function(user) {
+			window.location = "home.html";
+		  },
+		  error: function(user, error) {
+			// Show the error message somewhere and let the user try again.
+			if (error.code === -1) {
+				alert("Please make sure all fields are filled out.");
+			} else if (error.code === 202) {
+				alert("Username already taken.");
+			} else if (error.code === 203) {
+				alert("Email already taken.");
+			} else {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		  }
+		});
+	} else {
+		alert("Passwords do not match.");
+	}
 }
 
 function loginUser() {
@@ -82,6 +86,8 @@ function loginUser() {
 	  error: function(user, error) {
 		if (error.code === 101) {
 			alert("Invalid username or password. Please try again!");
+		} else {
+			alert("Error: " + error.code + " " + error.message);
 		}
 	  }
 	});
@@ -101,7 +107,11 @@ function forgotPassword() {
 	  },
 	  error: function(error) {
 		// Show the error message somewhere
-		alert("Error: " + error.code + " " + error.message);
+		if (error.code === 205) {
+			alert("Sorry! That email is not in my database. Please try a different one.");
+		} else {
+			alert("Error: " + error.code + " " + error.message);
+		}
 	  }
 	});
 }
