@@ -51,7 +51,7 @@
 	<gap:platform name="android" />
 	
 	<!-- web access whitelist -->
-	<access origin="http://*.ylhs.org" />
+	<access origin="*" />
 	
 	<!-- DEFAULT ICON --> 
 	<icon src="icon.png" /> 
