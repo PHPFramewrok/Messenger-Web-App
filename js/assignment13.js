@@ -2,6 +2,7 @@
 
 //PhoneGap Device ready
 document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("offline", alertWhenDeviceOffline, false);
 
 $(document).ready(jqueryReady);
 
@@ -10,6 +11,10 @@ function onDeviceReady()
 	//PhoneGap Fix IOS Status Bar issue
     StatusBar.overlaysWebView(false);
 	//setTimeout(function(){navigator.splashscreen.hide();}, 2000);
+}
+
+function alertWhenDeviceOffline() {
+	alert("An active internet connection is required to run this app. Please check your network settings and try again.");
 }
 
 function openSystemBrowser(urlString)

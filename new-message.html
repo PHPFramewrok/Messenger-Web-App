@@ -23,13 +23,18 @@
             </div>
         </nav>
         
-		<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-            <a href="new-message.html" class="btn-floating btn-large light-blue">
-              <i class="large mdi-editor-mode-edit"></i>
-            </a>
-            <ul>
-              <li><a onClick="logoutUser();" class="btn-floating blue"><i class="large mdi-action-exit-to-app"></i></a></li>
-            </ul>
+		<div class="container" style="width:auto">
+        	<div class="center">
+                <form id="messageInput" class="row">
+                    <div class="input-field col s11">
+                        <input placeholder="Message" id="message" type="text" length="160" required>
+                        <!--<label for="fname">First Name</label>-->
+                    </div>
+                    <div class="input-field col s1">
+                        <a class="btn-floating btn-large waves-effect waves-light blue"><i class="mdi-content-send"></i></a>
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
 </html>

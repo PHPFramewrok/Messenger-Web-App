@@ -2,7 +2,6 @@
 	color:#ffffff;	
 }
 
-
 .input-field input[type=text], 
 .input-field input[type=password], 
 .input-field input[type=email], 
@@ -12,7 +11,7 @@
 .input-field input[type=number], 
 .input-field input[type=search], 
 .input-field textarea.materialize-textarea {
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #000;
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -57,13 +56,13 @@
 .input-field input[type=number]:focus, 
 .input-field input[type=search]:focus, 
 .input-field textarea:focus.materialize-textarea {
-	border-bottom: 1px solid #fff;
-	box-shadow: 0 1px 0 0 #fff;  
+	border-bottom: 1px solid #000;
+	box-shadow: 0 1px 0 0 #000;  
 }
 
 /* label color */
 .input-field label, select {
-	color: #fff;
+	color: #000;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
@@ -83,12 +82,12 @@
 }
 /* input text color */
 input, select, textarea{
-    color: #fff;
+    color: #000;
 }
 textarea:focus, input:focus {
-    color: #fff;
+    color: #000;
 }
 /* character-counter color */
 .character-counter {
-	color: #fff;
+	color: #000;
 }
