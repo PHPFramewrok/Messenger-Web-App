@@ -16,7 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     </head>
     
-    <body onLoad="checkForLoggedInUser();">
+    <body>
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">Messenger</a>
@@ -27,36 +27,28 @@
             <br><br>
             <div class="card light-blue darken-1 center">
                 <div class="card-content">
-                    <span class="card-title white-text">Login</span>
+                    <span class="card-title white-text">Forgot Password</span>
                     <div class="row">
                         <form class="col s12">
-                            <div class="input-field">
-                                <i class="mdi-action-account-circle prefix" id="login-icon"></i>
-                                <input placeholder="Username" id="loguname" type="text">
-                                <!--<label for="loguname">Username</label>-->
-                            </div>
-                            <div class="input-field">
-                                <i class="mdi-action-lock prefix" id="login-icon"></i>
-                                <input placeholder="Password" id="logpassword" type="password">
-                                <!--<label for="logpassword">Password</label>-->
+                            <div class="input-field col s12">
+                                <i class="mdi-communication-email prefix" id="login-icon"></i>
+                                <input id="femail" placeholder="Email" type="email" length="40" class="validate" required>
+                                <!--<label for="femail">Email Address</label>-->
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="card-action">
-                    <a onClick="loginUser();" style="margin-left:20px; color:#fff;" class="light-blue lighten-2 waves-effect waves-light btn">Submit</a>
+                    <a onClick="forgotPassword();" style="margin-left:20px; color:#fff;" class="light-blue lighten-2 waves-effect waves-light btn">Submit</a>
                 </div>
             </div>
         </div>
         
-        <div class="container" style="width: 30%">
+        <div class="container">
             <br><br>
             <div class="row center">
-            	<div class="col s12">
-                	<a href="forgot.html">Forgot Password?</a>
-                </div>
                 <div class="col s12">
-                	<a href="register.html">Sign Up</a>
+                	<a href="index.html">Login</a>
                 </div>
             </div>
         </div>

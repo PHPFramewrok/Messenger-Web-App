@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Messenger</title>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/assignment13.css"/>
+        
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="js/assignment13.js"></script>
+        
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+    
+    <body onLoad="checkForLoggedInUserOnMainPage();">
+        <nav class="light-blue darken-1">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Messenger</a>
+            </div>
+        </nav>
+        
+		<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+            <a href="new-message.html" class="btn-floating btn-large light-blue">
+              <i class="large mdi-editor-mode-edit"></i>
+            </a>
+            <ul>
+              <li><a onClick="logoutUser();" class="btn-floating blue"><i class="large mdi-action-exit-to-app"></i></a></li>
+            </ul>
+        </div>
+    </body>
+</html>
