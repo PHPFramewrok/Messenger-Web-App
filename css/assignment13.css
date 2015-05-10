@@ -93,13 +93,13 @@ textarea:focus, input:focus {
 }
 
 /* New Message */
-/* Mobile Widths Smaller than Nexus 5 */
-@media (max-width: 359px) {
+/* Mobile Widths Smaller than 263px */
+@media (max-width: 263px) {
 	#messageInput-box {
-		width: 75%;
+		width: 66.67%;
 	}
 	#messageInput-FAB {
-		width: 25%;
+		width: 33.33%;
 	}
 }
 
