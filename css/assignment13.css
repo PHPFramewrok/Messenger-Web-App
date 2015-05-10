@@ -82,12 +82,34 @@
 }
 /* input text color */
 input, select, textarea{
-    color: #000;
+	color: #000;
 }
 textarea:focus, input:focus {
-    color: #000;
+	color: #000;
 }
 /* character-counter color */
 .character-counter {
 	color: #000;
+}
+
+/* New Message */
+/* Mobile Widths Smaller than Nexus 5 */
+@media (max-width: 359px) {
+	#messageInput-box {
+		width: 75%;
+	}
+	#messageInput-FAB {
+		width: 25%;
+	}
+}
+
+/* Force to Bottom */
+body.forceToBottom {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 0 auto;
 }
