@@ -2,6 +2,21 @@
 	color:#ffffff;	
 }
 
+#messageInput-box input[type=text], 
+#messageInput-box input[type=password], 
+#messageInput-box input[type=email], 
+#messageInput-box input[type=url], 
+#messageInput-box input[type=date], 
+#messageInput-box input[type=tel], 
+#messageInput-box input[type=number], 
+#messageInput-box input[type=search], 
+#messageInput-box textarea.materialize-textarea {
+	border-bottom: 1px solid #fff;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
 .input-field input[type=text], 
 .input-field input[type=password], 
 .input-field input[type=email], 
@@ -11,7 +26,7 @@
 .input-field input[type=number], 
 .input-field input[type=search], 
 .input-field textarea.materialize-textarea {
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #fff;
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -47,6 +62,19 @@
 	box-shadow: 0 1px 0 0 #00870A; 	
 }
 
+#messageInput-box input[type=text]:focus, 
+#messageInput-box input[type=password]:focus, 
+#messageInput-box input[type=email]:focus, 
+#messageInput-box input[type=url]:focus, 
+#messageInput-box input[type=date]:focus, 
+#messageInput-box input[type=tel]:focus, 
+#messageInput-box input[type=number]:focus, 
+#messageInput-box input[type=search]:focus, 
+#messageInput-box textarea:focus.materialize-textarea {
+	border-bottom: 1px solid #000;
+	box-shadow: 0 1px 0 0 #fff;  
+}
+
 .input-field input[type=text]:focus, 
 .input-field input[type=password]:focus, 
 .input-field input[type=email]:focus, 
@@ -56,13 +84,46 @@
 .input-field input[type=number]:focus, 
 .input-field input[type=search]:focus, 
 .input-field textarea:focus.materialize-textarea {
-	border-bottom: 1px solid #000;
-	box-shadow: 0 1px 0 0 #000;  
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;  
+}
+
+/* label color */
+#messageInput-box, select {
+	color: #000 !important;
+	
+}
+/* label focus color */
+#messageInput-box input[type=text]:focus + label {
+	color: #000;
+}
+/* label focus color */
+#messageInput-box input[type=password]:focus + label {
+	color: #000;
+}
+/* label focus color */
+#messageInput-box input[type=email]:focus + label {
+	color: #000;
+}
+/* icon prefix focus color */
+#messageInput-box .prefix.active {
+	color: #000;
+}
+/* input text color */
+#messageInput-box input, select, textarea {
+	color: #000;
+}
+#messageInput-box textarea:focus, input:focus {
+	color: #000;
+}
+/* character-counter color */
+#messageInput-box .character-counter {
+	color: #000;
 }
 
 /* label color */
 .input-field label, select {
-	color: #000;
+	color: #fff;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
@@ -82,14 +143,14 @@
 }
 /* input text color */
 input, select, textarea{
-	color: #000;
+	color: #fff;
 }
 textarea:focus, input:focus {
-	color: #000;
+	color: #fff;
 }
 /* character-counter color */
 .character-counter {
-	color: #000;
+	color: #fff;
 }
 
 /* New Message */

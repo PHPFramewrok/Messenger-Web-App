@@ -14,7 +14,7 @@ function onDeviceReady()
 }
 
 function alertWhenDeviceOffline() {
-	alert("An active internet connection is required to run this app. Please check your network settings and try again.");
+	alert("An active internet connection is required to run this app. You will not be able to log in. Please check your network settings.");
 }
 
 function openSystemBrowser(urlString)
@@ -32,6 +32,7 @@ function openInAppBroswer(urlString)
 function jqueryReady()
 {
 	Parse.initialize("wDt9OLZ6CA2CkN59jg58yz4XQfyDQQqCt3NmQ8Aa", "LMZR1EmXHSBQXjefMNosV54x8XpAxpvfqloJulYd");
+	initEnterButton();
 }
 
 function checkForLoggedInUser() {
@@ -98,6 +99,19 @@ function loginUser() {
 	});
 }
 
+function createMessageObject() {
+	
+	var Message = Parse.Object.extend("Message");
+	var userMessage = new Message();
+	
+	userMessage.set("for", $("#to").val());
+	userMessage.set("content", $("#message").val());
+	
+	userMessage.save();
+	
+	window.location = 'home.html';
+}
+
 function logoutUser() {
 	Parse.User.logOut();
 	alert("Logged out!");
@@ -119,4 +133,50 @@ function forgotPassword() {
 		}
 	  }
 	});
+}
+
+function queryMessages()
+{
+	var Message = Parse.Object.extend("Message");
+	var query = new Parse.Query(Message);
+	query.equalTo("for", Parse.User.current().getUsername());
+	query.find({
+	  success: function(results) {
+		var myOutput = "";
+		myOutput += "<ul class=\"collection with-header\">" + 
+		"<li class=\"collection-header\"><h4>My Messages</h4></li>";
+		
+		// Do something with the returned Parse.Object values
+		for (var i = 0; i < results.length; i++) { 
+		  var object = results[i];
+		  
+		  myOutput += "<a class=\"collection-item\" href=\"#!\">" + object.get('content') + "</a>";
+		}
+		
+		myOutput += "</ul>";
+		
+		//alert(myOutput);
+		var messageList = document.getElementById("messageList");
+		messageList.innerHTML = myOutput;
+	  },
+	  error: function(error) {
+		alert("Error: " + error.code + " " + error.message);
+	  }
+	});
+	//window.location.reload();
+}
+
+function initEnterButton() {
+	$('html').bind('keypress', function(e)
+	{
+	   if(e.keyCode == 13 && window.location.href.indexOf("index.html") > -1) {
+		   $("#loginButton").click();
+	   } else if (e.keyCode == 13 && window.location.href.indexOf("register.html") > -1) {
+		   $("#registerButton").click();
+	   } else if (e.keyCode == 13 && window.location.href.indexOf("forgot.html") > -1) {
+		   $("#forgotButton").click();
+	   } else if (e.keyCode == 13 && window.location.href.indexOf("new-message.html") > -1) {
+		   return false;
+	   }
+	});	
 }

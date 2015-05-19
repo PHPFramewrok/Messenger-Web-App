@@ -16,20 +16,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     </head>
     
-    <body onLoad="checkForLoggedInUserOnMainPage();">
+    <body onLoad="checkForLoggedInUserOnMainPage(); queryMessages();">
+    	<ul id="dropdown1" class="dropdown-content">
+          <li><a class="black-text" onClick="logoutUser();" href="#!">Logout</a></li>
+          <li class="divider"></li>
+          <li><a class="black-text" href="#!">Settings</a></li>
+        </ul>
+    	
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">Messenger</a>
+                <ul class="right hide-on-med-and-down">
+                  <!-- Dropdown Trigger -->
+                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-more-vert"></i></a></li>
+                </ul>
             </div>
         </nav>
+        
+        <div class="container" id="messageList"></div>
         
 		<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
             <a href="new-message.html" class="btn-floating btn-large light-blue">
               <i class="large mdi-editor-mode-edit"></i>
             </a>
-            <ul>
-              <li><a onClick="logoutUser();" class="btn-floating blue"><i class="large mdi-action-exit-to-app"></i></a></li>
-            </ul>
         </div>
     </body>
 </html>
