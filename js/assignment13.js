@@ -183,8 +183,6 @@ function queryMessages()
 		{ 
 		  var object = results[i];
 		  
-		  checkImageAvatar(object.get('from'));
-		  
 		  myOutput += "<li class=\"collection-item avatar\"><div>"
 		  + "<img id=\"avatarImg\" alt=\"\" class=\"circle\">"
 		  + "<span class=\"title\">From: " + object.get('from') + "</span>"
@@ -288,29 +286,31 @@ function makeID(length)
 //Change message list avatar based on first letter of sending username
 function checkImageAvatar(value)
 {
-	var elementID = document.getElementById("#avaterImg");
+	var elementID = document.getElementById("avaterImg");
 	var x = value;
 	
-	if (x === 'a' || x === 'A')
+	if (x.charAt(0) === 'a' || x.charAt(0) === 'A')
 	{
-		elementID.setAttribute("src", "/images/alphabet/a.png");
+		elementID.src = "img/alphabet/a.png";
 	}
-	else if (x === 'b' || x === 'B')
+	else if (x.charAt(0) === 'b' || x.charAt(0) === 'B')
 	{
-		elementID.setAttribute("src", "/images/alphabet/b.png");
+		elementID.src = "img/alphabet/b.png";
 	}
-	else if (x === 'c' || x === 'C')
+	else if (x.charAt(0) === 'c' || x.charAt(0) === 'C')
 	{
-		elementID.setAttribute("src", "/images/alphabet/c.png");
+		elementID.src = "img/alphabet/c.png";
 	}
-	else if (x === 'd' || x === 'D')
+	else if (x.charAt(0) === 'd' || x.charAt(0) === 'D')
 	{
-		elementID.setAttribute("src", "/images/alphabet/d.png");
+		elementID.src = "img/alphabet/d.png";
 	}
-	else if (x === 'e' || x === 'E')
+	else if (x.charAt(0) === 'e' || x.charAt(0) === 'E')
 	{
-		elementID.setAttribute("src", "/images/alphabet/e.png");
+		elementID.src = "img/alphabet/e.png";
 	}
+	
+	alert("Hello world!");
 }
 
 
