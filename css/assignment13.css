@@ -2,6 +2,10 @@
 	color:#ffffff;	
 }
 
+#message-delete-button {
+	color:#039be5;
+}
+
 #messageInput-box input[type=text], 
 #messageInput-box input[type=password], 
 #messageInput-box input[type=email], 
