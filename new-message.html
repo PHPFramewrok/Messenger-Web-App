@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
 		<script type="text/javascript" src="js/assignment13.js"></script>
 		
 		<!--Let browser know website is optimized for mobile-->
@@ -27,17 +28,26 @@
 			<div class="container" style="width:auto">
 				<div class="center">
 					<!-- For Messages -->
+                    <form autocomplete="off" id="messageInput" class="row">
+                        <div id="messageInput-box" class="input-field col s9 m12">
+                            <input placeholder="To: username" id="to" type="text" required>
+                            <!--<label for="fname">First Name</label>-->
+                        </div>
+                    </form>
+                    <ul id="messageList">
+                    	
+                    </ul>
 				</div>
 			</div>
 		</div>
 		<div class="center">
-			<form id="messageInput" class="row">
+			<form autocomplete="off" id="messageInput" class="row">
 				<div id="messageInput-box" class="input-field col s9 m11">
 					<input placeholder="Message" id="message" type="text" length="160" required>
 					<!--<label for="fname">First Name</label>-->
 				</div>
 				<div id="messageInput-FAB" class="input-field col s3 m1">
-					<a class="btn-floating btn-large waves-effect waves-light blue"><i class="mdi-content-send"></i></a>
+					<a id="createMessageInput" onClick="createMessageObject();" class="btn-floating btn-large waves-effect waves-light blue"><i class="mdi-content-send"></i></a>
 				</div>
 			</form>
 		</div>
