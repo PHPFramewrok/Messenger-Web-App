@@ -79,6 +79,19 @@
 	box-shadow: 0 1px 0 0 #fff;  
 }
 
+#messageInput-box input[type=text],
+#messageInput-box input[type=password],
+#messageInput-box input[type=email],
+#messageInput-box input[type=url],
+#messageInput-box input[type=date],
+#messageInput-box input[type=tel],
+#messageInput-box input[type=number],
+#messageInput-box input[type=search],
+#messageInput-box textarea.materialize-textarea {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #fff;
+}
+
 .input-field input[type=text]:focus, 
 .input-field input[type=password]:focus, 
 .input-field input[type=email]:focus, 
