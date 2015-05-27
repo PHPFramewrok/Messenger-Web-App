@@ -191,3 +191,7 @@ body.forceToBottom {
 .main {
 	flex: 1 0 auto;
 }
+/* Better Overflow handling on message page */
+.collection-item {
+	height: auto;
+}
