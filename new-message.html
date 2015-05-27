@@ -28,8 +28,8 @@
 			<div class="container" style="width:auto">
 				<div class="center">
 					<!-- For Messages -->
-                    <form autocomplete="off" id="messageInput" class="row">
-                        <div id="messageInput-box" class="input-field col s9 m12">
+                    <form autocomplete="off" id="messageInput">
+                        <div id="messageInput-box" class="input-field">
                             <input placeholder="To: username" id="to" type="text" required>
                             <!--<label for="fname">First Name</label>-->
                         </div>
@@ -43,7 +43,9 @@
 		<div class="center">
 			<form autocomplete="off" id="messageInput" class="row">
 				<div id="messageInput-box" class="input-field col s9 m11">
-					<input placeholder="Message" id="message" type="text" length="160" required>
+					<div class="center">
+						<input placeholder="Message" id="message" type="text" length="160" required>
+					</div>
 					<!--<label for="fname">First Name</label>-->
 				</div>
 				<div id="messageInput-FAB" class="input-field col s3 m1">
