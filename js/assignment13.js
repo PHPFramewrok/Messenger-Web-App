@@ -75,6 +75,7 @@ function registerUser()
 		  
 		user.signUp(null, {
 		  success: function(user) {
+			alert("Your info has been saved. Please check your email and verify it.");
 			window.location = "home.html";
 		  },
 		  error: function(user, error) {
@@ -163,41 +164,98 @@ function createMessageObject()
 	
 	userMessage.save();
 	
-	window.location = 'home.html';
+	setTimeout(function () {window.location = 'home.html'}, 2500);
+	Materialize.toast('Message Sent!', 2000) // 4000 is the duration of the toast
 }
 
-//QUERY MESSAGES ON HOME PAGE
-function queryMessages()
+//CREATE REPLY MESSAGE
+function createReplyMessageObject() 
 {
+	var replyTo;
 	var Message = Parse.Object.extend("Message");
 	var query = new Parse.Query(Message);
 	query.equalTo("for", Parse.User.current().getUsername());
 	query.find({
 	  success: function(results) 
 	  {
-		var myOutput = "";
-		myOutput += "<ul class=\"collection\">";
-		
-		// Do something with the returned Parse.Object values
-		for (var i = 0; i < results.length; i++)
-		{ 
-		  var object = results[i];
-		  
-		  myOutput += "<li class=\"collection-item avatar\"><div>"
-		  + "<img id=\"avatarImg\" alt=\"\" class=\"circle\">"
-		  + "<span class=\"title\">From: " + object.get('from') + "</span>"
-		  +	"<p>Content: " + object.get('content') + "</p>"
-		  + "<a href=\"#!\" id=\""
-		  + object.id 
-		  + "\" onClick=\"deleteMessage(this);\" class=\"secondary-content\"><i id=\"message-delete-button\" class=\"mdi-action-delete\"></i></a></div></li>";
-		  //myOutput += "<a class=\"collection-item\" href=\"#!\">" + object.get('content') + "</a>";
+		if (results.length > 0)	
+		{
+			for (var i = 0; i < results.length; i++)
+			{ 
+			  var object = results[i];
+			  
+			  replyTo = object.get('from');
+			}
+			
+			var Message = Parse.Object.extend("Message");
+			var userMessage = new Message();
+			
+			userMessage.set("for", replyTo);
+			userMessage.set("from", Parse.User.current().getUsername());
+			userMessage.set("customID", makeID(16))
+			userMessage.set("content", $("#messageReply").val());
+			
+			userMessage.save();
 		}
-		
-		myOutput += "</ul>";
-		
-		//alert(myOutput);
-		var messageList = document.getElementById("messageList");
-		messageList.innerHTML = myOutput;
+	  },
+	  error: function(error) 
+	  {
+		alert("Error: " + error.code + " " + error.message);
+	  }
+	});
+	
+	//setTimeout(function () {window.location = 'home.html'}, 2500);
+	Materialize.toast('Message Sent!', 2000) // 4000 is the duration of the toast
+}
+
+
+//QUERY MESSAGES ON HOME PAGE
+function queryMessages()
+{
+	var Message = Parse.Object.extend("Message");
+	var query = new Parse.Query(Message);
+	query.descending("createdAt");
+	query.equalTo("for", Parse.User.current().getUsername());
+	query.find({
+	  success: function(results) 
+	  {
+		if (results.length > 0)	
+		{
+			var myOutput = "";
+			myOutput += "<ul style=\"padding-top:5px;\" class=\"collection\">";
+			
+			// Do something with the returned Parse.Object values
+			for (var i = 0; i < results.length; i++)
+			{ 
+			  var object = results[i];
+			  
+			  myOutput += "<li class=\"collection-item avatar\"><div>"
+			  + "<img onClick=\"$('#modal1').openModal()\" id=\"avatarImg\" src=\"" 
+			  + checkImageAvatar(object.get('from')) 
+			  + "\" alt=\"\" class=\"circle\">"
+			  + "<span onClick=\"$('#modal1').openModal()\" class=\"title\">From: " + object.get('from') + "</span>"
+			  +	"<p onClick=\"$('#modal1').openModal()\">Content: " + object.get('content') + "</p>"
+			  +	"<p onClick=\"$('#modal1').openModal()\"><b>Tap Here to Reply</b></p>"
+			  + "<a href=\"#!\" id=\"" + object.id + "\" onClick=\"deleteMessage(this);\" class=\"secondary-content\"><i id=\"message-delete-button\" class=\"mdi-action-delete\"></i></a></div></li>";
+			  //myOutput += "<a class=\"collection-item\" href=\"#!\">" + object.get('content') + "</a>";
+			}
+			
+			myOutput += "</ul>";
+			
+			//alert(myOutput);
+			var messageList = document.getElementById("messageList");
+			messageList.innerHTML = myOutput;
+		}
+		else
+		{
+			var myOutput = "";
+			myOutput += "<ul style=\"padding-top:5px;\" class=\"collection\">"
+			+ "<li class=\"collection-item\">You have no messages at this time.</li>"
+			+ "</ul>";
+			
+			var noMessageList = document.getElementById("messageList");
+			noMessageList.innerHTML = myOutput;
+		}
 	  },
 	  error: function(error) 
 	  {
@@ -286,31 +344,106 @@ function makeID(length)
 //Change message list avatar based on first letter of sending username
 function checkImageAvatar(value)
 {
-	var elementID = document.getElementById("avaterImg");
-	var x = value;
-	
-	if (x.charAt(0) === 'a' || x.charAt(0) === 'A')
+	if (value.charAt(0) === 'a' || value.charAt(0) === 'A')
 	{
-		elementID.src = "img/alphabet/a.png";
+		return "img/alphabet/a.png";
 	}
-	else if (x.charAt(0) === 'b' || x.charAt(0) === 'B')
+	else if (value.charAt(0) === 'b' || value.charAt(0) === 'B')
 	{
-		elementID.src = "img/alphabet/b.png";
+		return "img/alphabet/b.png";
 	}
-	else if (x.charAt(0) === 'c' || x.charAt(0) === 'C')
+	else if (value.charAt(0) === 'c' || value.charAt(0) === 'C')
 	{
-		elementID.src = "img/alphabet/c.png";
+		return "img/alphabet/c.png";
 	}
-	else if (x.charAt(0) === 'd' || x.charAt(0) === 'D')
+	else if (value.charAt(0) === 'd' || value.charAt(0) === 'D')
 	{
-		elementID.src = "img/alphabet/d.png";
+		return "img/alphabet/d.png";
 	}
-	else if (x.charAt(0) === 'e' || x.charAt(0) === 'E')
+	else if (value.charAt(0) === 'e' || value.charAt(0) === 'E')
 	{
-		elementID.src = "img/alphabet/e.png";
+		return "img/alphabet/e.png";
 	}
-	
-	alert("Hello world!");
+	else if (value.charAt(0) === 'f' || value.charAt(0) === 'G')
+	{
+		return "img/alphabet/g.png";
+	}
+	else if (value.charAt(0) === 'h' || value.charAt(0) === 'H')
+	{
+		return "img/alphabet/h.png";
+	}
+	else if (value.charAt(0) === 'i' || value.charAt(0) === 'I')
+	{
+		return "img/alphabet/i.png";
+	}
+	else if (value.charAt(0) === 'j' || value.charAt(0) === 'J')
+	{
+		return "img/alphabet/j.png";
+	}
+	else if (value.charAt(0) === 'k' || value.charAt(0) === 'K')
+	{
+		return "img/alphabet/k.png";
+	}
+	else if (value.charAt(0) === 'l' || value.charAt(0) === 'L')
+	{
+		return "img/alphabet/l.png";
+	}
+	else if (value.charAt(0) === 'm' || value.charAt(0) === 'M')
+	{
+		return "img/alphabet/m.png";
+	}
+	else if (value.charAt(0) === 'n' || value.charAt(0) === 'N')
+	{
+		return "img/alphabet/n.png";
+	}
+	else if (value.charAt(0) === 'o' || value.charAt(0) === 'O')
+	{
+		return "img/alphabet/o.png";
+	}
+	else if (value.charAt(0) === 'p' || value.charAt(0) === 'P')
+	{
+		return "img/alphabet/p.png";
+	}
+	else if (value.charAt(0) === 'q' || value.charAt(0) === 'Q')
+	{
+		return "img/alphabet/q.png";
+	}
+	else if (value.charAt(0) === 'r' || value.charAt(0) === 'R')
+	{
+		return "img/alphabet/r.png";
+	}
+	else if (value.charAt(0) === 's' || value.charAt(0) === 'S')
+	{
+		return "img/alphabet/s.png";
+	}
+	else if (value.charAt(0) === 't' || value.charAt(0) === 'T')
+	{
+		return "img/alphabet/t.png";
+	}
+	else if (value.charAt(0) === 'u' || value.charAt(0) === 'U')
+	{
+		return "img/alphabet/u.png";
+	}
+	else if (value.charAt(0) === 'v' || value.charAt(0) === 'V')
+	{
+		return "img/alphabet/v.png";
+	}
+	else if (value.charAt(0) === 'w' || value.charAt(0) === 'W')
+	{
+		return "img/alphabet/w.png";
+	}
+	else if (value.charAt(0) === 'x' || value.charAt(0) === 'X')
+	{
+		return "img/alphabet/x.png";
+	}
+	else if (value.charAt(0) === 'y' || value.charAt(0) === 'Y')
+	{
+		return "img/alphabet/y.png";
+	}
+	else if (value.charAt(0) === 'z' || value.charAt(0) === 'Z')
+	{
+		return "img/alphabet/z.png";
+	}
 }
 
 

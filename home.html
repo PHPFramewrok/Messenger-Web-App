@@ -10,6 +10,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/assignment13.js"></script>
         
         <!--Let browser know website is optimized for mobile-->
@@ -22,18 +23,37 @@
           <li class="divider"></li>
           <li><a class="black-text" href="#!">Settings</a></li>
         </ul>
+        
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Reply</h4>
+            <form autocomplete="off" id="replyInput" class="row">
+				<div id="messageInput-box" class="input-field">
+					<input placeholder="Message" id="messageReply" type="text" length="160" required>
+					<!--<label for="fname">First Name</label>-->
+				</div>
+			</form>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" onClick="createReplyMessageObject();" class=" modal-action modal-close waves-effect waves-green btn-flat">Send</a>
+          </div>
+        </div>
     	
-        <nav class="light-blue darken-1">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Messenger</a>
-                <ul class="right hide-on-med-and-down">
-                  <!-- Dropdown Trigger -->
-                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-more-vert"></i></a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="navbar-fixed">
+            <nav class="light-blue darken-1">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">Messenger</a>
+                    <ul class="right hide-on-med-and-down">
+                      <!-- Dropdown Trigger -->
+                      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="mdi-navigation-more-vert"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         
         <div style="padding-left:16px; padding-right:16px;" id="messageList"></div>
+        <div style="padding-left:16px; padding-right:16px;" id="messageList2"></div>
         
 		<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
             <a href="new-message.html" class="btn-floating btn-large light-blue">
