@@ -3,45 +3,34 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
 		xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "org.ylhs.AQuebe.AS13"
-        version     = "1.5.0" >
+        version     = "1.0" >
 
-    <name>AQuebe AS13</name>
+    <name>Messenger</name>
 
     <description>
-        Assignment 13, a simple messaging app.
+        Messenger, a simple messaging app.
     </description>
 
-    <author href="http://www.amqtech.com" email="andrewquebe@amqtech.com">
+    <author href="http://www.ylhs.com" email="812649@pylusd.org">
         Andrew Quebe
     </author>
 	
 	<!-- what version of PhoneGap to build for -->
 	<preference name="phonegap-version" value="3.7.0" />
-    <preference name="orientation" value="landscape" />
+    
+    <!-- status bar color -->
+    <preference name="StatusBarBackgroundColor" value="#0288d1" />
+    
+    <!-- orientaton -->
+    <!--<preference name="orientation" value="landscape" />-->
 	
-	<!-- core plugins, include only what is necessary for app -->
-	<!-- https://build.phonegap.com/plugins/core/ -->
-	<!-- http://docs.phonegap.com/en/3.5.0/cordova_plugins_pluginapis.md.html -->
-	<!-- must include a link to every API that you app needs -->
-	<gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="org.apache.cordova.camera" />
-	<gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.contacts" />
+	<!-- core plugins -->
     <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.device-motion" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
     <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.file-transfer" />
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.globalization" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.media" />
-    <gap:plugin name="org.apache.cordova.media-capture" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
 	<gap:plugin name="org.apache.cordova.statusbar" />
-    <gap:plugin name="org.apache.cordova.vibration" />
 
 	<!-- SplashScreen Settings -->
 	<preference name="AutoHideSplashScreen" value="false" />

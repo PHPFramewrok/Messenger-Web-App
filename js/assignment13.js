@@ -237,12 +237,10 @@ function queryMessages()
 			  +	"<p onClick=\"$('#modal1').openModal()\">Content: " + object.get('content') + "</p>"
 			  +	"<p onClick=\"$('#modal1').openModal()\"><b>Tap Here to Reply</b></p>"
 			  + "<a href=\"#!\" id=\"" + object.id + "\" onClick=\"deleteMessage(this);\" class=\"secondary-content\"><i id=\"message-delete-button\" class=\"mdi-action-delete\"></i></a></div></li>";
-			  //myOutput += "<a class=\"collection-item\" href=\"#!\">" + object.get('content') + "</a>";
 			}
 			
 			myOutput += "</ul>";
 			
-			//alert(myOutput);
 			var messageList = document.getElementById("messageList");
 			messageList.innerHTML = myOutput;
 		}
@@ -266,9 +264,9 @@ function queryMessages()
 }
 
 //DELETE MESSAGE
-function deleteMessage(ele)
+function deleteMessage(message)
 {
-	var element = ele.id;
+	var element = message.id;
 	element = element.toString();
 	
 	var Message = Parse.Object.extend("Message");
@@ -319,6 +317,10 @@ function initEnterButton()
 		   $("#forgotButton").click();
 	   } 
 	   else if (e.keyCode == 13 && window.location.href.indexOf("new-message.html") > -1) 
+	   {
+		   return false;
+	   }
+	   else if (e.keyCode == 13 && window.location.href.indexOf("home.html") > -1) 
 	   {
 		   return false;
 	   }
@@ -446,15 +448,7 @@ function checkImageAvatar(value)
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+function reloadPage()
+{
+	location.reload();
+}
